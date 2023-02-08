@@ -1,0 +1,123 @@
+\hypertarget{classlog__message}{}\doxysection{log\+\_\+message Class Reference}
+\label{classlog__message}\index{log\_message@{log\_message}}
+
+
+\mbox{\hyperlink{classlog__message}{log\+\_\+message}} class that holds a message\textquotesingle{}s content  
+
+
+
+
+{\ttfamily \#include $<$log\+\_\+message.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlog__message_a008989815ad0ba2632ccb985107f4a39}{log\+\_\+message}} (std\+::string new\+\_\+timestamp, std\+::string new\+\_\+caller\+Name, std\+::string new\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Construct a new log message object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlog__message_acaec2383c81077a0ba0ec103a66076a8}{$\sim$log\+\_\+message}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the log message object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classlog__message_acc84d92b05e3ee228258de601762cc50}{get\+\_\+message}} ()
+\begin{DoxyCompactList}\small\item\em Get the message object function to get the message. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classlog__message_a73130527eb6f713e6931595f68bd829d}{get\+\_\+timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Get the timestamp object function to get the timestamp. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classlog__message_a2396b1c787da70eb76763bccaed7976f}{get\+\_\+caller\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get the caller\+Name object function to get the caller\textquotesingle{}s name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlog__message_a78fbaf260ec53db8fa97bbf017ab8065}\label{classlog__message_a78fbaf260ec53db8fa97bbf017ab8065}} 
+std\+::string {\bfseries caller\+Name}
+\item 
+\mbox{\Hypertarget{classlog__message_ac8f67a99a77acb2d80c013166af87395}\label{classlog__message_ac8f67a99a77acb2d80c013166af87395}} 
+std\+::string {\bfseries msg}
+\item 
+\mbox{\Hypertarget{classlog__message_a8de094c0099725a952a582bab9a45355}\label{classlog__message_a8de094c0099725a952a582bab9a45355}} 
+std\+::string {\bfseries timestamp}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classlog__message}{log\+\_\+message}} class that holds a message\textquotesingle{}s content 
+
+constructs an object that holds a message timestamp, caller name, and the message to be logged 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlog__message_a008989815ad0ba2632ccb985107f4a39}\label{classlog__message_a008989815ad0ba2632ccb985107f4a39}} 
+\index{log\_message@{log\_message}!log\_message@{log\_message}}
+\index{log\_message@{log\_message}!log\_message@{log\_message}}
+\doxysubsubsection{\texorpdfstring{log\_message()}{log\_message()}}
+{\footnotesize\ttfamily log\+\_\+message\+::log\+\_\+message (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+timestamp,  }\item[{std\+::string}]{new\+\_\+caller\+Name,  }\item[{std\+::string}]{new\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+Construct a new log message object. 
+
+creates the message object with given parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+timestamp} & the system time of the message \\
+\hline
+{\em new\+\_\+caller\+Name} & the na,e of the one logging \\
+\hline
+{\em new\+\_\+msg} & the message to be logged \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlog__message_acaec2383c81077a0ba0ec103a66076a8}\label{classlog__message_acaec2383c81077a0ba0ec103a66076a8}} 
+\index{log\_message@{log\_message}!````~log\_message@{$\sim$log\_message}}
+\index{````~log\_message@{$\sim$log\_message}!log\_message@{log\_message}}
+\doxysubsubsection{\texorpdfstring{$\sim$log\_message()}{~log\_message()}}
+{\footnotesize\ttfamily log\+\_\+message\+::$\sim$log\+\_\+message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the log message object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlog__message_a2396b1c787da70eb76763bccaed7976f}\label{classlog__message_a2396b1c787da70eb76763bccaed7976f}} 
+\index{log\_message@{log\_message}!get\_callerName@{get\_callerName}}
+\index{get\_callerName@{get\_callerName}!log\_message@{log\_message}}
+\doxysubsubsection{\texorpdfstring{get\_callerName()}{get\_callerName()}}
+{\footnotesize\ttfamily std\+::string log\+\_\+message\+::get\+\_\+caller\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the caller\+Name object function to get the caller\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string caller\textquotesingle{}s names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlog__message_acc84d92b05e3ee228258de601762cc50}\label{classlog__message_acc84d92b05e3ee228258de601762cc50}} 
+\index{log\_message@{log\_message}!get\_message@{get\_message}}
+\index{get\_message@{get\_message}!log\_message@{log\_message}}
+\doxysubsubsection{\texorpdfstring{get\_message()}{get\_message()}}
+{\footnotesize\ttfamily std\+::string log\+\_\+message\+::get\+\_\+message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the message object function to get the message. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string message 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlog__message_a73130527eb6f713e6931595f68bd829d}\label{classlog__message_a73130527eb6f713e6931595f68bd829d}} 
+\index{log\_message@{log\_message}!get\_timestamp@{get\_timestamp}}
+\index{get\_timestamp@{get\_timestamp}!log\_message@{log\_message}}
+\doxysubsubsection{\texorpdfstring{get\_timestamp()}{get\_timestamp()}}
+{\footnotesize\ttfamily std\+::string log\+\_\+message\+::get\+\_\+timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the timestamp object function to get the timestamp. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string time stamp 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{log__message_8h}{log\+\_\+message.\+h}}\item 
+log\+\_\+message.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+git config --global user.name "Shuhan Dong"
+git config --global user.email "sdong87@uwo.ca"
+clone ssh://git@repo.csd.uwo.ca:7999/compsci3307_f2022/group12.git
+
+git add --all
+git commit -m "Initial Commit"
+git remote add origin ssh://git@repo.csd.uwo.ca:7999/compsci3307_f2022/group12.git
+git push -u origin HEAD:master
+
+Things to do:

@@ -1,0 +1,4 @@
+all: main
+
+main:
+	g++ -std=c++14 ./Parser/*.cpp harness.cpp Central.h Central.cpp Nodes/BaseNode.cpp Nodes/BaseNode.h Nodes/GraphNode.cpp Nodes/GraphNode.h Nodes/CentralNode.cpp Nodes/CentralNode.h Connections/Bluetooth.cpp Connections/Bluetooth.h Connections/Wifi.cpp Connections/Wifi.h Connections/NodePipe.cpp Connections/NodePipe.h Connections/Handlers/GetHandler.cpp Connections/Handlers/GetHandler.h Connections/Handlers/Handler.cpp Connections/Handlers/Handler.h Connections/Handlers/PostHandler.cpp Connections/Handlers/PostHandler.h Connections/Handlers/PutHandler.cpp Connections/Handlers/PutHandler.h Connections/Handlers/PatchHandler.cpp Connections/Handlers/PatchHandler.h Connections/Handlers/DeleteHandler.cpp Connections/Handlers/DeleteHandler.h Connections/Handlers/OptionsHandler.cpp Connections/Handlers/OptionsHandler.h Connections/Enumerators.h logger.cpp log_message.cpp -l sqlite3 -pthread -lboost_system

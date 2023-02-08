@@ -1,0 +1,139 @@
+\hypertarget{classCentral}{}\doxysection{Central Class Reference}
+\label{classCentral}\index{Central@{Central}}
+
+
+Collaboration diagram for Central\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCentral_a10771b4c20f0a8a28ddefb1974e99c44}\label{classCentral_a10771b4c20f0a8a28ddefb1974e99c44}} 
+\mbox{\hyperlink{classCentral_a10771b4c20f0a8a28ddefb1974e99c44}{Central}} ()
+\begin{DoxyCompactList}\small\item\em Non-\/returning constructor that runs central system. Handles all activity with nodes. Changes to nodes must be made through a pipe, rather than directly accessing data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCentral_a6fe9aee0b767dd3aaf454bc56a3f96e8}{$\sim$\+Central}} ()
+\item 
+Graph\+Node $\ast$ \mbox{\hyperlink{classCentral_a7a0118f19755184b52a502bbe72f5ee5}{Get\+Node}} (int target)
+\begin{DoxyCompactList}\small\item\em Returns a particular node on the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCentral_a7e87629621bb0561f5d727f38d5c5ac8}{Remove\+Node}} (int target)
+\begin{DoxyCompactList}\small\item\em Removes node from a graph, and removes its associations to other nodes. \end{DoxyCompactList}\item 
+Central\+Node $\ast$ \mbox{\hyperlink{classCentral_aeffb84452b7d4331d05be65d54720558}{Get\+Central\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Returns node acting as a centralized anchor point for all input and output nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCentral_ad537052ec6dc1ed8d1ec05bb79ab90e9}\label{classCentral_ad537052ec6dc1ed8d1ec05bb79ab90e9}} 
+void \mbox{\hyperlink{classCentral_ad537052ec6dc1ed8d1ec05bb79ab90e9}{Firehose}} ()
+\begin{DoxyCompactList}\small\item\em Prints out detailed debug information about all nodes. Used for debugging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classCentral_ab025ca9eb4d2c7ad90111ab3a52c99d5}{Add\+Node}} (std\+::string $\ast$name, std\+::vector$<$ int $>$ input\+\_\+connections, std\+::vector$<$ float $>$ input\+\_\+weightings, std\+::vector$<$ int $>$ output\+\_\+connections, std\+::vector$<$ float $>$ output\+\_\+weightings)
+\begin{DoxyCompactList}\small\item\em Adds a node to the graph, if it has not been created yet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCentral_a82ab803b716d56a8e4c23e8c660859ef}\label{classCentral_a82ab803b716d56a8e4c23e8c660859ef}} 
+std\+::vector$<$ Graph\+Node $\ast$ $>$ {\bfseries node\+\_\+list}
+\item 
+\mbox{\Hypertarget{classCentral_a8e6e3ad57b35d209c23f0b6f745859bb}\label{classCentral_a8e6e3ad57b35d209c23f0b6f745859bb}} 
+std\+::vector$<$ std\+::string $\ast$ $>$ {\bfseries node\+\_\+names}
+\item 
+\mbox{\Hypertarget{classCentral_a8ead7257dbd7b2ac7dba54b9efaffaed}\label{classCentral_a8ead7257dbd7b2ac7dba54b9efaffaed}} 
+std\+::vector$<$ Graph\+Node $\ast$ $>$ {\bfseries input\+\_\+list}
+\item 
+\mbox{\Hypertarget{classCentral_a5afa4fb4fcc2c3c751eb9ffe8fd708ff}\label{classCentral_a5afa4fb4fcc2c3c751eb9ffe8fd708ff}} 
+int {\bfseries counter}
+\item 
+\mbox{\Hypertarget{classCentral_a065c0fd3d80aeac1c42e31f09a8025e7}\label{classCentral_a065c0fd3d80aeac1c42e31f09a8025e7}} 
+Central\+Node $\ast$ {\bfseries central\+\_\+node}
+\item 
+\mbox{\Hypertarget{classCentral_ac774bd5a928583132fb55811d6b8332d}\label{classCentral_ac774bd5a928583132fb55811d6b8332d}} 
+const \mbox{\hyperlink{classlogger}{logger}} $\ast$ {\bfseries \+\_\+log}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCentral_a6fe9aee0b767dd3aaf454bc56a3f96e8}\label{classCentral_a6fe9aee0b767dd3aaf454bc56a3f96e8}} 
+\index{Central@{Central}!````~Central@{$\sim$Central}}
+\index{````~Central@{$\sim$Central}!Central@{Central}}
+\doxysubsubsection{\texorpdfstring{$\sim$Central()}{~Central()}}
+{\footnotesize\ttfamily Central\+::$\sim$\+Central (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Unused destructor, as the central system should never exit unless explicitly terminated. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCentral_ab025ca9eb4d2c7ad90111ab3a52c99d5}\label{classCentral_ab025ca9eb4d2c7ad90111ab3a52c99d5}} 
+\index{Central@{Central}!AddNode@{AddNode}}
+\index{AddNode@{AddNode}!Central@{Central}}
+\doxysubsubsection{\texorpdfstring{AddNode()}{AddNode()}}
+{\footnotesize\ttfamily int Central\+::\+Add\+Node (\begin{DoxyParamCaption}\item[{std\+::string $\ast$}]{name,  }\item[{std\+::vector$<$ int $>$}]{input\+\_\+connections,  }\item[{std\+::vector$<$ float $>$}]{input\+\_\+weightings,  }\item[{std\+::vector$<$ int $>$}]{output\+\_\+connections,  }\item[{std\+::vector$<$ float $>$}]{output\+\_\+weightings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a node to the graph, if it has not been created yet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the node to be added \\
+\hline
+{\em input\+\_\+connections} & I\+Ds of all nodes to take input values from \\
+\hline
+{\em input\+\_\+weightings} & Percentage multiplier of input nodes \\
+\hline
+{\em output\+\_\+connections} & I\+Ds of all nodes this node updates its values to \\
+\hline
+{\em output\+\_\+weightings} & Percentage multiplier of the current node in the output nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCentral_aeffb84452b7d4331d05be65d54720558}\label{classCentral_aeffb84452b7d4331d05be65d54720558}} 
+\index{Central@{Central}!GetCentralNode@{GetCentralNode}}
+\index{GetCentralNode@{GetCentralNode}!Central@{Central}}
+\doxysubsubsection{\texorpdfstring{GetCentralNode()}{GetCentralNode()}}
+{\footnotesize\ttfamily Central\+Node $\ast$ Central\+::\+Get\+Central\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns node acting as a centralized anchor point for all input and output nodes. 
+
+\begin{DoxyReturn}{Returns}
+Node queried 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCentral_a7a0118f19755184b52a502bbe72f5ee5}\label{classCentral_a7a0118f19755184b52a502bbe72f5ee5}} 
+\index{Central@{Central}!GetNode@{GetNode}}
+\index{GetNode@{GetNode}!Central@{Central}}
+\doxysubsubsection{\texorpdfstring{GetNode()}{GetNode()}}
+{\footnotesize\ttfamily Graph\+Node $\ast$ Central\+::\+Get\+Node (\begin{DoxyParamCaption}\item[{int}]{target }\end{DoxyParamCaption})}
+
+
+
+Returns a particular node on the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The node ID, as an integer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Node queried 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCentral_a7e87629621bb0561f5d727f38d5c5ac8}\label{classCentral_a7e87629621bb0561f5d727f38d5c5ac8}} 
+\index{Central@{Central}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!Central@{Central}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily void Central\+::\+Remove\+Node (\begin{DoxyParamCaption}\item[{int}]{target }\end{DoxyParamCaption})}
+
+
+
+Removes node from a graph, and removes its associations to other nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Integer index of node to be removed \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Central.\+h\item 
+Central.\+cpp\end{DoxyCompactItemize}

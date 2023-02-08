@@ -1,0 +1,10 @@
+digraph "Central"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Central",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _log" ,fontname="Helvetica"];
+  Node2 [label="logger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlogger.html",tooltip="logger class used to log what's happening in the backend a logger class that uses a sqlite3 database ..."];
+  Node2 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _instance" ,fontname="Helvetica"];
+}

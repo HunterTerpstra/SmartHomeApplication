@@ -1,0 +1,162 @@
+\hypertarget{classlogger}{}\doxysection{logger Class Reference}
+\label{classlogger}\index{logger@{logger}}
+
+
+logger class used to log what\textquotesingle{}s happening in the backend a logger class that uses a sqlite3 database to store messages of type \mbox{\hyperlink{classlog__message}{log\+\_\+message}} into a database that refreshes every day the program is run. It can write a message, print the logs to console, or return the logs as a vector to be used elsewhere.  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+
+
+Collaboration diagram for logger\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classlogger_aadd537feeeb16186f6aeb4ca0267a8d7}{$\sim$logger}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the logger object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classlogger}{logger}} \& \mbox{\hyperlink{classlogger_a235d3b99d3480089543507f4377cda02}{write}} (std\+::string caller\+Name, std\+::string msg) const
+\begin{DoxyCompactList}\small\item\em write message to log \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classlog__message}{log\+\_\+message}} $>$ \mbox{\hyperlink{classlogger_ae519c12bf891707c8edc12f72b8b8565}{read\+\_\+all}} () const
+\begin{DoxyCompactList}\small\item\em creates a vector of messages from the db accesses the db and saves the messages into a vector \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classlogger}{logger}} \& \mbox{\hyperlink{classlogger_aef7f28c2a3944ad1ccfad33c6a3e0c88}{print\+To\+Console}} () const
+\begin{DoxyCompactList}\small\item\em prints log to console grabs logs from db and print s them to console \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classlogger}{logger}} \& \mbox{\hyperlink{classlogger_ae12c8bf5c62a1084453bd4ac0c77d724}{instance}} ()
+\begin{DoxyCompactList}\small\item\em instanciator for singleton object creates the logger object if it does not exist \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogger_a4f753a510e00c892b38e95c2284363a6}\label{classlogger_a4f753a510e00c892b38e95c2284363a6}} 
+\mbox{\hyperlink{classlogger_a4f753a510e00c892b38e95c2284363a6}{logger}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new logger object creates the logger object along with the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogger_a20440477aeac005ae8e7f57e79e6378a}\label{classlogger_a20440477aeac005ae8e7f57e79e6378a}} 
+std\+::string {\bfseries get\+Time} () const
+\item 
+\mbox{\Hypertarget{classlogger_aa27c0e3d1d126a582eb43a44d227da7d}\label{classlogger_aa27c0e3d1d126a582eb43a44d227da7d}} 
+std\+::string {\bfseries get\+Date} () const
+\item 
+\mbox{\hyperlink{classlogger_ab802c5b842db71b64596f81b9a6b7a31}{logger}} (const \mbox{\hyperlink{classlogger}{logger}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new logger object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogger_a89d9c26eb60df3bc29482294b829b748}\label{classlogger_a89d9c26eb60df3bc29482294b829b748}} 
+sqlite3 $\ast$ {\bfseries db}
+\item 
+\mbox{\Hypertarget{classlogger_a867658467f87972d997933fe38ddc542}\label{classlogger_a867658467f87972d997933fe38ddc542}} 
+std\+::string {\bfseries app\+Name}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogger_aa45af5933c5282cd56291fa3f47ec07f}\label{classlogger_aa45af5933c5282cd56291fa3f47ec07f}} 
+static const \mbox{\hyperlink{classlogger}{logger}} $\ast$ {\bfseries \+\_\+instance} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+logger class used to log what\textquotesingle{}s happening in the backend a logger class that uses a sqlite3 database to store messages of type \mbox{\hyperlink{classlog__message}{log\+\_\+message}} into a database that refreshes every day the program is run. It can write a message, print the logs to console, or return the logs as a vector to be used elsewhere. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlogger_ab802c5b842db71b64596f81b9a6b7a31}\label{classlogger_ab802c5b842db71b64596f81b9a6b7a31}} 
+\index{logger@{logger}!logger@{logger}}
+\index{logger@{logger}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{logger()}{logger()}}
+{\footnotesize\ttfamily logger\+::logger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlogger}{logger}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Construct a new logger object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlogger_aadd537feeeb16186f6aeb4ca0267a8d7}\label{classlogger_aadd537feeeb16186f6aeb4ca0267a8d7}} 
+\index{logger@{logger}!````~logger@{$\sim$logger}}
+\index{````~logger@{$\sim$logger}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{$\sim$logger()}{~logger()}}
+{\footnotesize\ttfamily logger\+::$\sim$logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the logger object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlogger_ae12c8bf5c62a1084453bd4ac0c77d724}\label{classlogger_ae12c8bf5c62a1084453bd4ac0c77d724}} 
+\index{logger@{logger}!instance@{instance}}
+\index{instance@{instance}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classlogger}{logger}} \& logger\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+instanciator for singleton object creates the logger object if it does not exist 
+
+\begin{DoxyReturn}{Returns}
+const logger\& the address of the singleton logger object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlogger_aef7f28c2a3944ad1ccfad33c6a3e0c88}\label{classlogger_aef7f28c2a3944ad1ccfad33c6a3e0c88}} 
+\index{logger@{logger}!printToConsole@{printToConsole}}
+\index{printToConsole@{printToConsole}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{printToConsole()}{printToConsole()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classlogger}{logger}} \& logger\+::print\+To\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+prints log to console grabs logs from db and print s them to console 
+
+\begin{DoxyReturn}{Returns}
+const logger\& the address of the singleton logger object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlogger_ae519c12bf891707c8edc12f72b8b8565}\label{classlogger_ae519c12bf891707c8edc12f72b8b8565}} 
+\index{logger@{logger}!read\_all@{read\_all}}
+\index{read\_all@{read\_all}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{read\_all()}{read\_all()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classlog__message}{log\+\_\+message}} $>$ logger\+::read\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+creates a vector of messages from the db accesses the db and saves the messages into a vector 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$log\+\_\+message$>$ a vector of log messages 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlogger_a235d3b99d3480089543507f4377cda02}\label{classlogger_a235d3b99d3480089543507f4377cda02}} 
+\index{logger@{logger}!write@{write}}
+\index{write@{write}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classlogger}{logger}} \& logger\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{caller\+Name,  }\item[{std\+::string}]{msg }\end{DoxyParamCaption}) const}
+
+
+
+write message to log 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller\+Name} & the name of the caller class \\
+\hline
+{\em msg} & message to be logged \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const logger\& the address of the singleton logger object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{logger_8h}{logger.\+h}}\item 
+logger.\+cpp\end{DoxyCompactItemize}

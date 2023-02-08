@@ -1,0 +1,78 @@
+Automated smart home
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{General project description}\label{md_README_autotoc_md2}
+Our final goal is to create a system that can take input from multiple sensors and process this data to automatically control lights and other home appliances. The main point of interface is the through the command line directly with the Pi the system will run on, with additional (optional) points of interface such as an app or Windows program, which is currently being worked on.
+
+Most of the processing is done not in the code itself, but rather how the data structures are configured and linked together using a rudimentary neural network. Changes of states in nodes will trigger changes of states in other nodes, and if the final change means a light will turn on, the system will control the light. As of this moment (November 8, 2022), we have finished 4 main sections\+:
+
+
+\begin{DoxyItemize}
+\item \href{\#gooey}{\texttt{ Independent G\+UI on Windows}}
+\item \href{\#eventLogger}{\texttt{ Event logger and retriever}}
+\item \href{\#nodeSystem}{\texttt{ Node-\/based logic system}}
+\item \href{\#updatedUML}{\texttt{ Updated U\+ML diagrams}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{Independent G\+U\+I $<$a name=\char`\"{}gooey\char`\"{}$>$$<$/a$>$}\label{md_README_autotoc_md4}
+
+
+This interface will run on a Windows device separate from the main program. As of now, these sections allow the user to select a light and control its brightness. The user can add and remove light bulbs. As of right now it does not connect to the central system, but will eventually link to the actual bluetooth and wifi connected lightbulbs instead of dummy ones. To open the G\+UI, run the G\+U\+I.\+exe application in the G\+UI folder. To compile the G\+UI classes, you will need to install wx\+Widgets and link it appropriately to App.\+cpp and Main\+Frame.\+cpp.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md6}{}\doxysection{Event logger and retriever $<$a name=\char`\"{}event\+Logger\char`\"{}$>$$<$/a$>$}\label{md_README_autotoc_md6}
+An event logger running on sqlite3 processes and stores requests for logs given by other classes. For example, a user inputting their request to turn a light on to a certain level will be logged and stored for the foreseeable future. If the program is ever run in debug mode, the C\+LI can print these log statements, allowing for easier access to these events and diagnostics. Since this logging functionality is designed for diagnostics in the backend, the G\+UI will not be designed to support this.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md8}{}\doxysection{Node-\/based logic system $<$a name=\char`\"{}node\+System\char`\"{}$>$$<$/a$>$}\label{md_README_autotoc_md8}
+The node system allows for the complexity of flexible logic to be broken up into multiple sections, or even eliminated entirely depending on how you look at it. By building the logic through linkages of simple node classes, most of the coding can be done through relatively simple and tested processes, such as connecting graphs. The system graph consists of 3 main layers, with an additional interface unit.
+
+The first layer, the input layer, directly takes input from the central system and sends it to root nodes. The most common types of input will likely be input from sensors or emulated sensors external to the system, in the form of light level sensors and manually operated switches. However, the system will likely have its own input values in the form of time and other system events/data.
+
+The middle layer does not have a fixed configuration. In this layer, the nodes created do not have to correspond to a real-\/world hardware equivalent. These code-\/only nodes can be set up to perform additional math and conditionals. A potential middle node can be set up as the representation of an entire room with all the lights within it connected as inputs. If any of the lights turn on this node activates, visualising the fact that this room is now lit or active. Other peripheral devices can act off this data, such as closing the blinds or playing music in that specific room without the peripheral devices needing to directly connect to lights. While these middle layers are not strictly necessary, it allows the user to better represent abstract features like rooms and areas within the code.
+
+The final layer, the output layer, takes the output from other nodes into leaf nodes which forward their value back to the central system. While they can also combine multiple outputs from input nodes, their unique purpose is to send a response back to the central system.
+
+While there are different types of nodes, the boundaries between each one is blurred. The layers are more to help the programmer and user visualise the data structures and flow, rather than to help the program run. In fact, input, middle, and output layers are all the same type with the only differentiating aspect found in the nodes they connect to. An output node could connect to the output, and also be connected other downstream nodes as well. The same applies for input nodes.
+
+The interface unit provides a uniform location for all graph nodes to connect to for system input and output. Rather than the system providing the interfaces for the graph nodes to call, they all interact with the central node. This allows the graph nodes and main system to remain untouched if the need for fixes or extensions arises, greatly lowering unnecessary coupling.
+
+The diagram below visualises the current test setup and weights. This tests weights and connections by summing all inputs to 1.\+00 for each node. If everything works as desired, output nodes 2, 5, and 6 will all output 1.\+0 to the central system.
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md10}{}\doxysection{Updated U\+M\+L diagrams $<$a name=\char`\"{}updated\+U\+M\+L\char`\"{}$>$$<$/a$>$}\label{md_README_autotoc_md10}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md12}{}\doxysection{Testing Nodes}\label{md_README_autotoc_md12}
+For testing, please use the test harness {\ttfamily harness.\+cpp}.
+
+Nodes can be created by calling 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int Central*-\/>AddNode(vector<int> input\_node\_ids, vector<float> input\_node\_weights, vector<int> output\_node\_ids);}
+\end{DoxyCode}
+
+
+which creates the node and initialises its connections, returning the ID of the node created. Please keep in mind that connections to future nodes will be skipped as those nodes do not exist yet. When a connection is made to a node, the corresponding opposite connection is also established.
+
+For debugging purposes, {\ttfamily Base\+Node$\ast$-\/$>$Firehose()} can be called to dump the node\textquotesingle{}s connection info into terminal.\hypertarget{md_README_autotoc_md13}{}\doxysection{Testing\+: Logger}\label{md_README_autotoc_md13}
+For testing the Logger class, please do so through {\ttfamily Central.\+cpp}. You will see the testing code for the Singleton Instance and methods commented out in the constructor for {\ttfamily Central.\+cpp}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{logger::instance();}
+\DoxyCodeLine{// \_log-\/>write("Central","I successfully called on logger");}
+\DoxyCodeLine{// \_log-\/>print\_all();}
+\DoxyCodeLine{// std::vector<log\_message> tst = \_log-\/>read\_all();}
+\end{DoxyCode}
+
+
+The write method {\ttfamily write(\+Caller\+Name, Message)} can be edited by changing the caller name and/or message.
+
+$\ast$\+Preprocessing D\+E\+B\+UG is set up in {\ttfamily \mbox{\hyperlink{logger_8h}{logger.\+h}}} and can be set to 1 to view intermediate debugging print statements.
+
+\DoxyHorRuler{0}
+
+
+\href{\#top}{\texttt{ $^\wedge$ Back to top $^\wedge$}} 
